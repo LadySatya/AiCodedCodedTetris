@@ -44,22 +44,30 @@ Open `index.html` in your web browser and start playing!
 - **Vanilla JavaScript**: No external dependencies or frameworks
 - **HTML5 Canvas**: 2D rendering for smooth graphics
 - **Event-Driven**: Keyboard controls with proper event handling
-- **Modular Design**: Well-organized functions for game logic, rendering, and state management
+- **Modular Design**: Object-oriented classes with single responsibilities
 
 ### Key Systems
-- **Piece System**: Object-oriented tetromino definitions with rotation matrices
-- **Board Management**: 2D array representation with efficient update methods
-- **Timer System**: Delta-time based game loop for consistent gameplay across different frame rates
-- **State Management**: Clean separation between game state, rendering, and user input
+- **PieceManager**: Handles tetromino definitions, rotations, and bag-based generation
+- **Board**: Manages game grid, collision detection, and line clearing
+- **GameState**: Tracks scoring, level progression, and game timing
+- **Renderer**: Handles all canvas drawing and UI updates
+- **InputHandler**: Processes keyboard events with configurable handlers
+- **TetrisGame**: Main controller that coordinates all modules
 
 ## 📁 File Structure
 
 ```
 VibeCodedTetris/
-├── index.html      # Main HTML structure
-├── tetris.js       # Core game logic and rendering
-├── style.css       # Game styling and layout
-└── README.md       # This documentation
+├── js/
+│   ├── pieces.js      # PieceManager class - tetrominos & bag system
+│   ├── board.js       # Board class - grid management & collision
+│   ├── gameState.js   # GameState class - scoring & progression 
+│   ├── input.js       # InputHandler class - keyboard controls
+│   ├── renderer.js    # Renderer class - canvas drawing
+│   └── game.js        # TetrisGame class - main coordination
+├── index.html         # Main HTML structure
+├── style.css          # Game styling and layout
+└── README.md          # This documentation
 ```
 
 ## 🎯 Game Rules
@@ -79,13 +87,24 @@ VibeCodedTetris/
 
 ## 🔧 Customization
 
-The game is easily customizable through the JavaScript constants:
+The modular design makes customization straightforward:
 
+**Game Configuration** (in `game.js`):
 - `BOARD_WIDTH` / `BOARD_HEIGHT`: Adjust game board size
 - `CELL_SIZE`: Change visual block size
-- `dropInterval`: Modify initial game speed
-- Tetromino colors in `getColor()` function
-- Scoring multipliers in `clearLines()` function
+
+**Piece Customization** (in `pieces.js`):
+- Add new tetromino shapes in the `tetrominos` object
+- Modify colors in the `getColors()` method
+- Adjust bag system behavior
+
+**Scoring & Timing** (in `gameState.js`):
+- Modify scoring multipliers in `addLines()`
+- Adjust speed progression in level calculations
+
+**Visual Styling** (in `renderer.js`):
+- Change colors and drawing styles
+- Add visual effects or animations
 
 ## 🎨 Features Highlight
 
