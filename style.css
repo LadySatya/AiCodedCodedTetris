@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.game-info {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.game-info h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.score, .level, .lines {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#gameCanvas {
+    border: 2px solid white;
+    background-color: #111;
+}
+
+.controls {
+    font-size: 0.9em;
+    color: #aaa;
+}
