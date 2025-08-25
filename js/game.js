@@ -22,7 +22,8 @@ class TetrisGame {
             left: () => this.movePiece(-1, 0),
             right: () => this.movePiece(1, 0),
             down: () => this.movePiece(0, 1),
-            rotate: () => this.rotatePiece()
+            rotateClockwise: () => this.rotatePiece(true),
+            rotateCounterClockwise: () => this.rotatePiece(false)
         });
     }
 
@@ -60,14 +61,14 @@ class TetrisGame {
         return this.pieceManager.movePiece(dx, dy, isValidMove);
     }
 
-    rotatePiece() {
+    rotatePiece(clockwise = true) {
         if (!this.gameState.getStats().isRunning) return;
         
         const isValidMove = (offsetX, offsetY) => {
             return this.board.isValidPosition(this.pieceManager, offsetX, offsetY);
         };
         
-        this.pieceManager.rotatePiece(isValidMove);
+        this.pieceManager.rotatePiece(isValidMove, clockwise);
     }
 
     dropPiece() {

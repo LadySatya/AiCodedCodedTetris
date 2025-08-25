@@ -4,7 +4,8 @@ class InputHandler {
             left: null,
             right: null,
             down: null,
-            rotate: null
+            rotateClockwise: null,
+            rotateCounterClockwise: null
         };
         
         this.setupEventListeners();
@@ -28,9 +29,14 @@ class InputHandler {
                         this.handlers.down();
                     }
                     break;
-                case 'ArrowUp':
-                    if (this.handlers.rotate) {
-                        this.handlers.rotate();
+                case 'KeyZ':
+                    if (this.handlers.rotateCounterClockwise) {
+                        this.handlers.rotateCounterClockwise();
+                    }
+                    break;
+                case 'KeyX':
+                    if (this.handlers.rotateClockwise) {
+                        this.handlers.rotateClockwise();
                     }
                     break;
             }
@@ -53,7 +59,11 @@ class InputHandler {
         this.handlers.down = handler;
     }
 
-    setRotateHandler(handler) {
-        this.handlers.rotate = handler;
+    setRotateClockwiseHandler(handler) {
+        this.handlers.rotateClockwise = handler;
+    }
+
+    setRotateCounterClockwiseHandler(handler) {
+        this.handlers.rotateCounterClockwise = handler;
     }
 }

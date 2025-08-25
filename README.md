@@ -8,7 +8,8 @@ Open `index.html` in your web browser and start playing!
 
 ### Controls
 - **← →** Move piece left/right
-- **↑** Rotate piece clockwise
+- **Z** Rotate piece counter-clockwise ↺
+- **X** Rotate piece clockwise ↻
 - **↓** Drop piece faster (soft drop)
 
 ## ✨ Features
@@ -16,7 +17,8 @@ Open `index.html` in your web browser and start playing!
 ### Core Gameplay
 - **Standard Tetris Board**: 10×20 grid game area
 - **All 7 Tetrominos**: Complete set of standard pieces (I, O, T, S, Z, J, L)
-- **Piece Rotation**: Full 4-direction rotation with collision checking
+- **Super Rotation System (SRS)**: Official rotation system with proper centers and wall kicks
+- **Dual Rotation Controls**: Separate counter-clockwise (Z) and clockwise (X) rotation
 - **Movement System**: Smooth left/right/down movement with boundary detection
 - **Collision Detection**: Comprehensive collision system for walls, floor, and piece-to-piece interactions
 
@@ -37,6 +39,7 @@ Open `index.html` in your web browser and start playing!
 - **Smooth Rendering**: 60fps game loop using `requestAnimationFrame()`
 - **Responsive Canvas**: Clean HTML5 Canvas rendering with proper scaling
 - **Modern Styling**: Clean, minimalist interface with dark theme
+- **SRS Compliance**: Wall kick system enabling advanced techniques like T-spins
 
 ## 🛠️ Technical Implementation
 
@@ -108,8 +111,21 @@ The modular design makes customization straightforward:
 
 ## 🎨 Features Highlight
 
+### Super Rotation System (SRS)
+Implements the official Tetris rotation system used in modern games:
+- **Proper rotation centers**: Each piece rotates around its geometric center
+- **Wall kick system**: Pieces attempt multiple positions when rotating near obstacles
+- **I-piece special handling**: 4×4 grid with unique kick patterns
+- **T-spin capability**: Enables advanced techniques and higher scores
+
 ### Bag System
 Unlike simple random generation, this implementation uses a "bag" system that ensures fair piece distribution. Every 7 pieces, you're guaranteed to receive each tetromino type exactly once, eliminating frustrating droughts of specific pieces.
+
+### Dual Rotation Controls
+Modern control scheme with separate rotation directions:
+- **Z key**: Counter-clockwise rotation ↺
+- **X key**: Clockwise rotation ↻
+- Enables precise piece manipulation and advanced techniques
 
 ### Progressive Difficulty
 The game naturally increases in difficulty through:
@@ -118,11 +134,11 @@ The game naturally increases in difficulty through:
 - Maintaining challenge without becoming impossible
 
 ### Authentic Experience
-Faithfully recreates the classic Tetris experience with:
-- Standard piece shapes and rotations
+Faithfully recreates the modern Tetris experience with:
+- SRS-compliant piece behavior
 - Traditional scoring system
 - Classic color scheme
-- Familiar game mechanics
+- Professional-grade game mechanics
 
 ---
 
